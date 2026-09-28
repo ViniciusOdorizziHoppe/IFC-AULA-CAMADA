@@ -20,5 +20,8 @@
 
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Entidades mapeadas -->
+        <mapping class="ifc.ibirama.hibernate.util.entidades.Bombeiros"/>
     </session-factory>
 </hibernate-configuration>
