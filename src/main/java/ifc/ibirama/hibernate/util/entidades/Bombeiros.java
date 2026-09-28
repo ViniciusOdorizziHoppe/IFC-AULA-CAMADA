@@ -1,4 +1,4 @@
-/*
+*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -6,17 +6,24 @@ package ifc.ibirama.hibernate.util.entidades;
 
 import java.util.Date;
 
+
+
+
+
 /**
  *
  * @author Vinícius
  */
 public class Bombeiros {
     private Integer id;
-    private char bom_cpf;
+    private char cpf;
     private Date bom_data_nascimento;
     private String bom_nome_completo;
     private String bom_nome_guerra;
-
+   
+    public Bombeiros(){
+        
+    }
     /**
      * @return the id
      */
@@ -34,15 +41,15 @@ public class Bombeiros {
     /**
      * @return the bom_cpf
      */
-    public char getBom_cpf() {
-        return bom_cpf;
+    public char getcpf() {
+        return cpf;
     }
 
     /**
      * @param bom_cpf the bom_cpf to set
      */
-    public void setBom_cpf(char bom_cpf) {
-        this.bom_cpf = bom_cpf;
+    public void setcpf(char bom_cpf) {
+        this.cpf = bom_cpf;
     }
 
     /**
@@ -86,4 +93,18 @@ public class Bombeiros {
     public void setBom_nome_guerra(String bom_nome_guerra) {
         this.bom_nome_guerra = bom_nome_guerra;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Bombeiros) {
+            Bombeiros aux = (Bombeiros)obj;
+            
+            if (aux.getId().equals(this.id)) && (aux.getcpf().equals(this.cpf)) {
+                return true;
+            }
+        }else   {
+            return false;
+        }
+    }
+    
+    
 }
