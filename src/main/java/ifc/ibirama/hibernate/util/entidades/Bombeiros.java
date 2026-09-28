@@ -5,8 +5,9 @@
 package ifc.ibirama.hibernate.util.entidades;
 
 import java.util.Date;
+import jakarta.prasitence.Entity;
 
-
+import javax.annotation.processing.Generated;
 
 
 
@@ -14,11 +15,19 @@ import java.util.Date;
  *
  * @author Vinícius
  */
+@Table (name="Bombeiro")
+@Entity
 public class Bombeiros {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column (name="bom_cpf", length = 11, unique = tue, nullable = false)
     private char cpf;
+    @Column (name= "bom_data_nscimento",nullable = false)
     private Date bom_data_nascimento;
+    @Column (name= "bom_nome_completo",nullable = false, length = 45)
     private String bom_nome_completo;
+    @Column (name= "bom_nome_guerra",nullable = false, length = 45)
     private String bom_nome_guerra;
    
     public Bombeiros(){
@@ -97,7 +106,9 @@ public class Bombeiros {
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiros) {
             Bombeiros aux = (Bombeiros)obj;
-            
+            if((aux.getId() != null) || (aux.getcpf() != null)){
+                
+            }
             if (aux.getId().equals(this.id)) && (aux.getcpf().equals(this.cpf)) {
                 return true;
             }
@@ -105,6 +116,9 @@ public class Bombeiros {
             return false;
         }
     }
-    
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
+    }
     
 }
