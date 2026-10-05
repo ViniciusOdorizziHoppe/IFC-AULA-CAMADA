@@ -23,5 +23,7 @@
 
         <!-- Entidades mapeadas -->
         <mapping class="ifc.ibirama.hibernate.util.entidades.Bombeiros"/>
+        <mapping class="ifc.ibirama.hibernate.util.entidades.Viaturas"/>
+
     </session-factory>
 </hibernate-configuration>
