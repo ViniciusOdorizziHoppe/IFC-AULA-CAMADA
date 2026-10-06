@@ -1,12 +1,13 @@
-*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ifc.ibirama.hibernate.util.entidades;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Date;
-import jakarta.prasitence.Entity;
-
 import javax.annotation.processing.Generated;
 
 
@@ -20,9 +21,9 @@ import javax.annotation.processing.Generated;
 public class Bombeiros {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column (name="bom_cpf", length = 11, unique = tue, nullable = false)
-    private char cpf;
+    private String id;
+    @Column (name="bom_cpf", length = 11, unique = true, nullable = false)
+    private String cpf;
     @Column (name= "bom_data_nscimento",nullable = false)
     private Date bom_data_nascimento;
     @Column (name= "bom_nome_completo",nullable = false, length = 45)
@@ -36,28 +37,28 @@ public class Bombeiros {
     /**
      * @return the id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     /**
      * @return the bom_cpf
      */
-    public char getcpf() {
+    public String getcpf() {
         return cpf;
     }
 
     /**
      * @param bom_cpf the bom_cpf to set
      */
-    public void setcpf(char bom_cpf) {
+    public void setcpf(String bom_cpf) {
         this.cpf = bom_cpf;
     }
 
@@ -102,17 +103,20 @@ public class Bombeiros {
     public void setBom_nome_guerra(String bom_nome_guerra) {
         this.bom_nome_guerra = bom_nome_guerra;
     }
-    @Override
+     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiros) {
-            Bombeiros aux = (Bombeiros)obj;
-            if((aux.getId() != null) || (aux.getcpf() != null)){
-                
-            }
-            if (aux.getId().equals(this.id)) && (aux.getcpf().equals(this.cpf)) {
+            Bombeiros aux = (Bombeiros) obj;
+            
+            // O primeiro if que você fez estava vazio e sem utilidade, então mantive apenas a validação principal
+            // Corrigido o fechamento dos parênteses externos do if e adicionado checagens para evitar NullPointerException
+            if (aux.getId() != null && this.id != null && aux.getId().equals(this.id) && 
+                aux.getcpf() != null && this.cpf != null && aux.getcpf().equals(this.cpf)) {
                 return true;
+            } else {
+                return false;
             }
-        }else   {
+        } else {
             return false;
         }
     }
