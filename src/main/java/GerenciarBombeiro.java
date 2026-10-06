@@ -14,5 +14,9 @@ import org.hibernate.Session;
 public class GerenciarBombeiro {
     public static void main(String[] args) {
       Session sessao =  HibernateUtil.getSessionFactory().openSession();
+      
+        System.out.println("Sessão Estabelecida");
+        
+        sessao.close();
     }
 }
