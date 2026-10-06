@@ -1,6 +1,7 @@
 
 import ifc.ibirama.hibernate.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -16,6 +17,12 @@ public class GerenciarBombeiro {
       Session sessao =  HibernateUtil.getSessionFactory().openSession();
       
         System.out.println("Sessão Estabelecida");
+        Transaction transacao = null;
+        try{
+            
+        }catch (Exception e){
+            
+        }
         
         sessao.close();
     }
