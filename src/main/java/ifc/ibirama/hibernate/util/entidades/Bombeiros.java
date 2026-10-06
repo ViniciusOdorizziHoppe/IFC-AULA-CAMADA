@@ -108,8 +108,6 @@ public class Bombeiros {
         if (obj instanceof Bombeiros) {
             Bombeiros aux = (Bombeiros) obj;
             
-            // O primeiro if que você fez estava vazio e sem utilidade, então mantive apenas a validação principal
-            // Corrigido o fechamento dos parênteses externos do if e adicionado checagens para evitar NullPointerException
             if (aux.getId() != null && this.id != null && aux.getId().equals(this.id) && 
                 aux.getcpf() != null && this.cpf != null && aux.getcpf().equals(this.cpf)) {
                 return true;
