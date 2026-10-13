@@ -31,6 +31,8 @@ public class Bombeiros {
     @Column (name= "bom_nome_guerra",nullable = false, length = 45)
     private String bom_nome_guerra;
    
+    
+    private Usuarios usuarios;
     public Bombeiros(){
         
     }
