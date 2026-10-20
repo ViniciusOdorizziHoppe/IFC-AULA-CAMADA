@@ -17,12 +17,12 @@ public class GerenciarBombeiro {
 
     public static void main(String[] args) {
         Session sessao = HibernateUtil.getSessionFactory().openSession();
-
+        
         System.out.println("Sessão Estabelecida");
         Transaction transacao = null;
 
         Bombeiros bombeiro = new Bombeiros();
-        bombeiro.setcpf("12345678");
+        bombeiro.setCpf("12345678");
         Calendar cal = Calendar.getInstance();
         cal.set(1990, Calendar.JANUARY, 8);
         bombeiro.setBom_data_nascimento(cal.getTime());

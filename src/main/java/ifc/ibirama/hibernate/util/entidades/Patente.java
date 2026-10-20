@@ -1,38 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ifc.ibirama.hibernate.util.entidades;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import java.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-/**
- *
- * @author aluno
- */
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
-@Table (name="Patente")
 @Entity
+@Table(name = "Patente")
 public class Patente {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pat_id;
-    
-    @Column (name="pat_sigla", length = 10,unique = true)
+
+    @Column(name = "pat_sigla", length = 10, unique = true)
     private String pat_sigla;
-    
-    @Column (name= "pat_descricao",nullable = false, unique = true)
+
+    @Column(name = "pat_descricao", nullable = false, unique = true)
     private String pat_descricao;
-    
-    private Set<Bombeiros> bombeiro = new HashSet<Bombeiros()>                                                                      
-    
-    public Patente(){
-        
+
+    @ManyToMany(mappedBy = "patente")
+    private Set<Bombeiros> bombeiro = new HashSet<>();
+
+    public Patente() {
     }
 
     public Integer getPat_id() {
@@ -59,13 +56,12 @@ public class Patente {
         this.pat_descricao = pat_descricao;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.pat_id);
-        hash = 37 * hash + Objects.hashCode(this.pat_sigla);
-        hash = 37 * hash + Objects.hashCode(this.pat_descricao);
-        return hash;
+    public Set<Bombeiros> getBombeiro() {
+        return bombeiro;
+    }
+
+    public void setBombeiro(Set<Bombeiros> bombeiro) {
+        this.bombeiro = bombeiro;
     }
 
     @Override
@@ -73,25 +69,19 @@ public class Patente {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Patente other = (Patente) obj;
-        if (!Objects.equals(this.pat_sigla, other.pat_sigla)) {
-            return false;
-        }
-        if (!Objects.equals(this.pat_descricao, other.pat_descricao)) {
-            return false;
-        }
-        return Objects.equals(this.pat_id, other.pat_id);
+
+        Patente outra = (Patente) obj;
+
+        return pat_id != null
+                && Objects.equals(pat_id, outra.pat_id);
     }
 
-    
-   
-
-   
-    
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
