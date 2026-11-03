@@ -35,7 +35,7 @@ public class Bombeiros {
 
     @Column(name = "bom_nome_guerra", nullable = false, length = 45)
     private String bom_nome_guerra;
-
+/*
     @OneToMany(mappedBy = "bombeiro")
     private Set<Telefone_Contato> telefone = new HashSet<>();
 
@@ -54,7 +54,7 @@ public class Bombeiros {
         inverseJoinColumns = @JoinColumn(name = "usu_id")
     )
     private Set<Usuarios> usuarios = new HashSet<>();
-
+  */
     public Bombeiros() {
     }
 
@@ -98,29 +98,6 @@ public class Bombeiros {
         this.bom_nome_guerra = bom_nome_guerra;
     }
 
-    public Set<Telefone_Contato> getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Set<Telefone_Contato> telefone) {
-        this.telefone = telefone;
-    }
-
-    public Set<Patente> getPatente() {
-        return patente;
-    }
-
-    public void setPatente(Set<Patente> patente) {
-        this.patente = patente;
-    }
-
-    public Set<Usuarios> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(Set<Usuarios> usuarios) {
-        this.usuarios = usuarios;
-    }
 
     @Override
     public boolean equals(Object obj) {

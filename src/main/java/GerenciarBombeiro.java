@@ -26,7 +26,7 @@ public class GerenciarBombeiro {
         Calendar cal = Calendar.getInstance();
         cal.set(1990, Calendar.JANUARY, 8);
         bombeiro.setBom_data_nascimento(cal.getTime());
-
+        bombeiro.setBom_nome_guerra("das");
         bombeiro.setBom_nome_completo("Vinícius Odorizzi Hoppe");
 
         try {
