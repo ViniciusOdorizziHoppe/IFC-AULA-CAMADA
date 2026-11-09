@@ -10,6 +10,8 @@ import java.util.Objects;
  *
  * @author aluno
  */
+
+@PrimaryKeyJoinColumn(name"id")
 public class AutoTanque extends Viaturas{
     private Integer aut_id;
     private Float aut_litragem;
