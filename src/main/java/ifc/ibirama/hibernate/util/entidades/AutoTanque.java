@@ -4,6 +4,7 @@
  */
 package ifc.ibirama.hibernate.util.entidades;
 
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import java.util.Objects;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Objects;
  * @author aluno
  */
 
-@PrimaryKeyJoinColumn(name"id")
+@PrimaryKeyJoinColumn(name="id")
 public class AutoTanque extends Viaturas{
     private Integer aut_id;
     private Float aut_litragem;
